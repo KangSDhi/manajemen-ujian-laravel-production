@@ -24,7 +24,7 @@ services:
     container_name: manajemen-ujian-laravel-webserver-prod
 
     ports:
-      - 8001:80
+      - 80:80
       - 443:443
 
     volumes:
