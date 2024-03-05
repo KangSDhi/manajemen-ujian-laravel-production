@@ -32,7 +32,7 @@ services:
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./docker/nginx/ssl/cert.pem:/etc/ssl/atapnegeri.pem
       - ./docker/nginx/ssl/key.key:/etc/ssl/atapnegeri.key
-      - ./docker/nginx/ssl/cloudflare.crt:/etc/ssl/cloudflare.crt
+      - ./docker/nginx/ssl/cloudflare.crt:/etc/ssl/atapnegeri.crt
 
     networks:
       - manajemen-ujian-laravel-net
