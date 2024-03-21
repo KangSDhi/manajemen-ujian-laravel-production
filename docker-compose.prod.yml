@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   app:
-    image: kangstek/manajemen-ujian-laravel:alpha-0.2.15
+    image: kangstek/manajemen-ujian-laravel:beta-0.2.15.1
     
     container_name: manajemen-ujian-laravel-app-prod
 
