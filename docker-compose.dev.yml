@@ -1,7 +1,7 @@
 services:
 
   app:
-    image: kangstek/manajemen-ujian-laravel:beta-0.2.16.3
+    image: kangstek/manajemen-ujian-laravel:beta-0.2.16.4
     
     container_name: manajemen-ujian-laravel-app-dev
 
@@ -9,7 +9,7 @@ services:
 
     ports:
       - 80:8000
-      - 443:443
+      - 443:8895
 
     env_file:
       - ./docker/app/.env.dev
