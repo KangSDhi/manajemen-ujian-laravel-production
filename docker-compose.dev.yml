@@ -1,20 +1,37 @@
 services:
 
+  # app:
+  #   image: kangstek/manajemen-ujian-laravel:beta-0.2.16.4
+    
+  #   container_name: manajemen-ujian-laravel-app-dev
+
+  #   working_dir: /var/www
+
+  #   ports:
+  #     - 80:8000
+  #     - 443:8895
+
+  #   env_file:
+  #     - ./docker/app/.env.dev
+
+  #   command: rr serve -c .rr.development.yaml
+
+  #   volumes:
+  #     - app-data:/var/www
+  #     - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    
+  #   networks:
+  #     - manajemen-ujian-laravel-net
+
   app:
-    image: kangstek/manajemen-ujian-laravel:beta-0.2.16.4
+    image: kangstek/manajemen-ujian-laravel:beta-0.3.0.1
     
     container_name: manajemen-ujian-laravel-app-dev
 
     working_dir: /var/www
 
-    ports:
-      - 80:8000
-      - 443:8895
-
     env_file:
       - ./docker/app/.env.dev
-
-    command: rr serve -c .rr.development.yaml
 
     volumes:
       - app-data:/var/www
@@ -23,19 +40,21 @@ services:
     networks:
       - manajemen-ujian-laravel-net
 
-  # webserver:
-  #   image: nginx:1.25.3
-  #   container_name: manajemen-ujian-laravel-webserver-dev
+  webserver:
+    image: nginx:1.25.3
+    container_name: manajemen-ujian-laravel-webserver-dev
 
-  #   ports:
-  #     - 8001:80
+    ports:
+      - 8001:80
 
-  #   volumes:
-  #     - app-data:/var/www
-  #     - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    volumes:
+      - app-data:/var/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/ssl/cert.pem:/etc/ssl/cert.pem
+      - ./docker/nginx/ssl/key.pem:/etc/ssl/key.pem
 
-  #   networks:
-  #     - manajemen-ujian-laravel-net
+    networks:
+      - manajemen-ujian-laravel-net
   
   db:
     image: mariadb:10.7.8
